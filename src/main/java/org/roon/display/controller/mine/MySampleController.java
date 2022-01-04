@@ -40,4 +40,18 @@ public class MySampleController {
 
         return "mine/dtoList";
     }
+
+    @GetMapping("/mine/inlineJs")
+    public String inlineJs(Model model){
+        SampleDto dto = SampleDto.builder()
+                .id(1)
+                .name("leemr")
+                .time(LocalDateTime.now())
+                .build();
+
+        model.addAttribute("status","success");
+        model.addAttribute("dto",dto);
+
+        return "mine/inlineJs";
+    }
 }

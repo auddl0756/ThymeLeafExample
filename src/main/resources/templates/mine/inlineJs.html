@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>서버 변수 js에서 사용하기</title>
+</head>
+<body>
+
+<p th:text="${dto.id}"></p>
+<p th:text="${dto.name}"></p>
+
+<div>
+    <p id="targetStatus"></p>
+    <p id="targetDto"></p>
+</div>
+
+<script type="javascript" th:line="javascript">
+
+    const status = [[${status}]];
+    let dto = [[${dto}]];
+
+
+    //동작하지 않음..
+    // 서버의 변수 받아오는 게 전부인 듯 한데.. 활용 못하는거 같은데
+    // 자바스크립트가 아니라 의미 없는 문자열로 인식하는데.......................
+    document.querySelector('#targetStatus').innerHTML = "[[${status}]]";
+    console.log(status,dto);
+
+</script>
+
+
+</body>
+</html>
