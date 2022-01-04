@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">    <!-- xmlns mean XML Name Space -->
+<head>
+    <meta charset="UTF-8">
+    <title>link example</title>
+</head>
+<body>
+
+<ul>
+    <li th:each="dto : ${dtoList}">
+        <a th:href="@{/sample/view}">[[${dto}]]</a>
+    </li>
+</ul>
+
+</body>
+</html>

@@ -4,23 +4,20 @@ import org.roon.display.controller.dto.SampleDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
 public class SampleController {
-    @GetMapping("/ex1")
-    public String ex1() {
-        return "ex1";
-    }
+    private static List<SampleDto> dtoList;
 
-    @GetMapping("/ex2")
-    public String ex2(Model model) {
-
-        var dtoList = IntStream.rangeClosed(1, 10)
+    static{
+        dtoList = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> {
                     SampleDto dto = SampleDto.builder()
                             .id(i)
@@ -29,7 +26,15 @@ public class SampleController {
                             .build();
                     return dto;
                 }).collect(Collectors.toList());
+    }
 
+    @GetMapping("/ex1")
+    public String ex1() {
+        return "ex1";
+    }
+
+    @GetMapping("/ex2")
+    public String ex2(Model model) {
         model.addAttribute("dtoList", dtoList);
 
         return "ex2";
@@ -52,5 +57,17 @@ public class SampleController {
     @GetMapping("/ex3")
     public String ex3() {
         return "ex3";
+    }
+
+    @GetMapping("/link")
+    public String link(Model model){
+        model.addAttribute("dtoList",dtoList);
+        return "link";
+    }
+
+    @ResponseBody
+    @GetMapping("/sample/view")
+    public String sampleView(){
+        return "sampleViewPage...";
     }
 }
