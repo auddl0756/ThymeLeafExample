@@ -17,5 +17,12 @@
         [[${dto}]]
     </li>
 </ul>
+
+<ul>
+    <li th:each = "dto, state : ${dtoList}" th:if="${dto.id % 5 == 0}">
+        index = [[${state.index}]] | count = [[${state.count}]] | dto = [[${dto}]]
+    </li>
+</ul>
+
 </body>
 </html>
