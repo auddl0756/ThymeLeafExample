@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>block example</title>
+</head>
+<body>
+
+<ul>
+    <th:block th:each="dto : ${dtoList}">
+        <li th:text="${dto.id % 5 == 0} ? ${dto.id} : ${dto.name}"></li>
+    </th:block>
+</ul>
+
+</body>
+</html>
