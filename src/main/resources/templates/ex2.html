@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">    <!-- xmlns mean XML Name Space -->
+<head>
+    <meta charset="UTF-8">
+    <title>sample page 2</title>
+</head>
+<body>
+
+<ul>
+    <li th:each="dto : ${dtoList}">         <!-- 대체 ""는 왜 붙여줘야 하는 건지... -->
+        [[${dto}]]
+    </li>
+</ul>
+</body>
+</html>
