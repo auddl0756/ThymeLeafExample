@@ -11,8 +11,8 @@ import java.util.stream.IntStream;
 
 @Controller
 public class MySampleController {
-    @GetMapping("/mine/ex2")
-    public String ex2(Model model){
+    @GetMapping("/mine/dto")
+    public String getDto(Model model){
         SampleDto sampleDto = SampleDto.builder()
                 .id(1)
                 .name("leemr")
@@ -21,11 +21,11 @@ public class MySampleController {
 
         model.addAttribute("sampleDto",sampleDto);
 
-        return "mine/ex2";
+        return "mine/dto";
     }
 
-    @GetMapping("/mine/ex2_2")
-    public String ex2_2(Model model){
+    @GetMapping("/mine/dtoList")
+    public String getDtoList(Model model){
         var dtoList = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> {
                     SampleDto dto = SampleDto.builder()
@@ -38,6 +38,6 @@ public class MySampleController {
 
         model.addAttribute("dtoList", dtoList);
 
-        return "mine/ex2_2";
+        return "mine/dtoList";
     }
 }
