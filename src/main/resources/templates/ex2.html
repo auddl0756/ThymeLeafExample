@@ -7,13 +7,13 @@
 <body>
 
 <ul>
-    <li th:each="dto : ${dtoList}">         <!-- 대체 ""는 왜 붙여줘야 하는 건지... -->
+    <li th:each = "dto : ${dtoList}">         <!-- 대체 ""는 왜 붙여줘야 하는 건지... -->
         [[${dto}]]
     </li>
 </ul>
 
 <ul>
-    <li th:each = "dto, state : ${dtoList}" th:if="${dto.id % 5 ==0}">
+    <li th:each = "dto, state : ${dtoList}" th:if="${dto.id % 5 == 0}">
         [[${dto}]]
     </li>
 </ul>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>변형2</title>
+</head>
+<body>
+<ul>
+    <li th:each = "dto : ${dtoList}" th:if="${dto.id % 5 == 0}">
+        [[${dto}]]
+    </li>
+</ul>
+
+<ul>
+    <li th:each = "dto : ${dtoList}">
+        <div th:if="${dto.id % 5 ==0}">
+            [[${dto}]]
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>

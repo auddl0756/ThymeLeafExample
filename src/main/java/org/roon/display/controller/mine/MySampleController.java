@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDateTime;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 public class MySampleController {
@@ -20,5 +22,22 @@ public class MySampleController {
         model.addAttribute("sampleDto",sampleDto);
 
         return "mine/ex2";
+    }
+
+    @GetMapping("/mine/ex2_2")
+    public String ex2_2(Model model){
+        var dtoList = IntStream.rangeClosed(1, 10)
+                .mapToObj(i -> {
+                    SampleDto dto = SampleDto.builder()
+                            .id(i)
+                            .name("leemr")
+                            .time(LocalDateTime.now())
+                            .build();
+                    return dto;
+                }).collect(Collectors.toList());
+
+        model.addAttribute("dtoList", dtoList);
+
+        return "mine/ex2_2";
     }
 }
