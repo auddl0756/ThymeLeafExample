@@ -22,7 +22,7 @@ public class SampleController {
         var dtoList = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> {
                     SampleDto dto = SampleDto.builder()
-                            .id(1)
+                            .id(i)
                             .name("leemr")
                             .time(LocalDateTime.now())
                             .build();
